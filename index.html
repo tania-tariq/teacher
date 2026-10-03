@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Teacher's Day 🌸</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI", sans-serif;
+    background:linear-gradient(135deg,#fff0f6,#ffe0ec,#fff7fa);
+    color:#5c3045;
+    overflow-x:hidden;
+}
+
+/* Floating background hearts */
+
+.bg-heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:22px;
+    animation:floatUp 8s linear infinite;
+    opacity:.5;
+    z-index:0;
+    pointer-events:none;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    20%{
+        opacity:.7;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-card{
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(12px);
+    border:2px solid rgba(255,255,255,.8);
+    border-radius:35px;
+    padding:45px 30px;
+    max-width:850px;
+    box-shadow:0 20px 60px rgba(214,100,145,.2);
+    animation:cardIn 1.3s ease;
+    z-index:2;
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(50px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.teacher-icon{
+    font-size:75px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+.hero h1{
+    font-size:clamp(40px,8vw,75px);
+    color:#d94f87;
+    margin:15px 0;
+}
+
+.hero h2{
+    font-size:clamp(20px,4vw,32px);
+    color:#8e4c68;
+    font-weight:500;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.start-btn{
+    margin-top:30px;
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ed78a8,#d84f87);
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(216,79,135,.3);
+    transition:.3s;
+}
+
+.start-btn:hover{
+    transform:translateY(-5px) scale(1.04);
+}
+
+/* SECTION */
+
+section{
+    padding:90px 20px;
+    position:relative;
+    z-index:1;
+}
+
+.section-title{
+    text-align:center;
+    color:#d94f87;
+    font-size:clamp(30px,6vw,48px);
+    margin-bottom:45px;
+}
+
+/* MESSAGE */
+
+.message-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 15px 45px rgba(200,90,130,.15);
+    text-align:center;
+    line-height:1.9;
+    font-size:18px;
+    border:3px dashed #f3a8c5;
+}
+
+.message-box .big{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+/* FUNNY CARDS */
+
+.cards{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.8);
+    padding:30px 22px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(190,80,120,.12);
+    transition:.4s;
+    border:2px solid #ffd2e2;
+}
+
+.card:hover{
+    transform:translateY(-10px) rotate(1deg);
+}
+
+.card .emoji{
+    font-size:50px;
+}
+
+.card h3{
+    color:#d45288;
+    margin:15px 0 10px;
+}
+
+.card p{
+    line-height:1.6;
+}
+
+/* DOODLES */
+
+.doodles{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.gallery-note{
+    max-width:760px;
+    margin:-25px auto 32px;
+    text-align:center;
+    line-height:1.6;
+    color:#8e4c68;
+}
+
+.doodle{
+    background:white;
+    border-radius:25px;
+    padding:12px;
+    box-shadow:0 10px 25px rgba(190,80,120,.15);
+    transition:.4s;
+}
+
+.doodle:hover{
+    transform:rotate(-3deg) scale(1.04);
+}
+
+.doodle img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.doodle p{
+    text-align:center;
+    padding:12px 5px;
+    font-weight:600;
+    color:#a54d70;
+}
+
+/* TEACHER QUOTE */
+
+.quote{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    background:linear-gradient(135deg,#ffd7e7,#fff);
+    border-radius:35px;
+    padding:50px 30px;
+    box-shadow:0 15px 40px rgba(200,90,130,.15);
+}
+
+.quote span{
+    font-size:55px;
+}
+
+.quote h2{
+    margin:15px 0;
+    color:#d94f87;
+}
+
+.quote p{
+    font-size:20px;
+    line-height:1.7;
+}
+
+/* SURPRISE */
+
+.surprise{
+    text-align:center;
+}
+
+.surprise-box{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    border-radius:35px;
+    padding:45px 25px;
+    box-shadow:0 15px 45px rgba(190,80,120,.18);
+}
+
+.surprise-btn{
+    margin-top:25px;
+    padding:15px 30px;
+    border:0;
+    border-radius:30px;
+    background:#d94f87;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.hidden-message{
+    display:none;
+    margin-top:30px;
+    font-size:21px;
+    line-height:1.8;
+    color:#a33e68;
+    animation:pop .7s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px 20px;
+    background:#f9c4d9;
+    color:#78374f;
+}
+
+/* CONFETTI */
+
+.confetti{
+    position:fixed;
+    top:-20px;
+    width:10px;
+    height:10px;
+    z-index:100;
+    animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+    .cards{
+        grid-template-columns:1fr;
+        max-width:500px;
+    }
+
+    .doodles{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero-card{
+        padding:35px 20px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    section{
+        padding:65px 15px;
+    }
+
+    .doodles{
+        grid-template-columns:1fr;
+    }
+
+    .doodle img{
+        height:280px;
+    }
+
+    .message-box{
+        padding:28px 20px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="bg-heart" style="left:5%;animation-delay:0s;">💗</div>
+<div class="bg-heart" style="left:18%;animation-delay:2s;">🌸</div>
+<div class="bg-heart" style="left:35%;animation-delay:4s;">💕</div>
+<div class="bg-heart" style="left:55%;animation-delay:1s;">🎀</div>
+<div class="bg-heart" style="left:75%;animation-delay:3s;">💗</div>
+<div class="bg-heart" style="left:90%;animation-delay:5s;">🌷</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-card">
+
+        <div class="teacher-icon">👩‍🏫🌸</div>
+
+        <h1>Happy Teacher's Day!</h1>
+
+        <h2>Congratulations on your permanent position! ✨</h2>
+
+        <p>
+            From being a visiting teacher to becoming a permanent member of the team, your journey has been inspiring. 💗
+        </p>
+
+        <button class="start-btn" onclick="scrollToMessage()">
+            Open Your Surprise 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- MESSAGE -->
+
+<section id="message">
+
+    <h2 class="section-title">A Little Message For You 🌷</h2>
+
+    <div class="message-box">
+
+        <div class="big">💗 Dear Teacher 💗</div>
+
+        <p>
+            It has only been three weeks, so we are still in the first episode. 😂
+        </p>
+
+        <br>
+
+        <p>
+            Thank you for understanding me and being so patient and supportive, even when I miss a lecture. It genuinely means a lot. 🌸
+        </p>
+
+        <br>
+
+        <p>
+            Our journey is just beginning. Let’s see what the next chapters bring! 💗
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FUNNY MOMENTS -->
+
+<section>
+
+    <h2 class="section-title">Three-Week Semester Starter Pack 😂🎀</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="emoji">📚😭</div>
+            <h3>Episode One 🎬</h3>
+            <p>
+                Three weeks in, and the semester plot is already thickening. 😂
+                <br>
+                Next episode: "Miss, is this going to be on the test?" 😭
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">👀</div>
+            <h3>Attendance Side Quest 🏃‍♀️</h3>
+            <p>
+                Me: "I won't miss any lectures this week."
+                <br>
+                My alarm: "That's adorable." 😂
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🙋‍♀️😂</div>
+            <h3>Permanent Role Unlocked! 🎉</h3>
+            <p>
+                New title, same amazing Miss! 🌸
+                <br>
+                Now our "just one quick question" visits are permanent too. 😂💗
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DOODLES -->
+
+<section>
+
+    <h2 class="section-title">Little Memories, Lots of Smiles 🎨💗</h2>
+
+    <p class="gallery-note">
+        A little gallery for a teacher who makes our days brighter and even deadlines feel less scary. 💗
+    </p>
+
+    <div class="doodles">
+
+        <!-- Replace these images with your own doodles -->
+
+        <div class="doodle">
+            <img src="te1.jpeg" alt="Cute Teacher Doodle">
+            <p>Best Teacher Ever 🌸</p>
+        </div>
+
+        <div class="doodle">
+            <img src="te2.jpeg" alt="Funny Teacher Doodle">
+            <p>Patient Level: 1000 😂</p>
+        </div>
+
+        <div class="doodle">
+            <img src="te3.jpeg" alt="Cute Doodle">
+            <p>Thank You For Everything 💗</p>
+        </div>
+
+        <div class="doodle">
+            <img src="te4.jpeg" alt="Funny Doodle">
+            <p>We Survived Another Class 😭🎀</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUOTE -->
+
+<section>
+
+    <div class="quote">
+
+        <span>🌷</span>
+
+        <h2>Just the Beginning</h2>
+
+        <p>
+            Dear Teacher 🌸💗
+
+Happy Teacher’s Day! 🎀✨
+
+Thank you for teaching us, guiding us, tolerating our endless questions, and somehow surviving our “Ma’am, ye syllabus mein hai?” moments. 😂😭
+
+You don’t just teach us lesson. you also teach us patience … especially when we forget our assignments! 🤭📚
+
+Honestly, every class becomes a little more memorable because of you. 🌷
+
+Thank you for always believing in us, correcting us when we’re wrong, and encouraging us to do better. 🥹💗
+
+May your coffee always be hot ☕, your students always be on time ⏰, and your “I’ll check your assignment later” never turn into 50 assignments! 😂
+
+Happy Teacher’s Day to one of the most amazing teachers! 👩‍🏫🌸💗**
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SURPRISE -->
+
+<section class="surprise">
+
+    <h2 class="section-title">One Last Little Surprise 💌</h2>
+
+    <div class="surprise-box">
+
+        <div style="font-size:65px;">🎁🌸</div>
+
+        <h2 style="color:#d94f87;">
+            There's something here for you...
+        </h2>
+
+        <button class="surprise-btn" onclick="showSurprise()">
+            Click Me 💗
+        </button>
+
+        <div class="hidden-message" id="surpriseMessage">
+
+            🌸 Happy Teacher's Day, Miss! Congratulations on becoming a permanent member of the team. From being a visiting teacher to reaching this wonderful milestone, you have come so far. May this be the first of many achievements. Wishing you lots more success and happiness in everything ahead, Insha'Allah! 💗
+
+            <br><br>
+
+            <br><br>
+
+            <b>Happy Teacher's Day! 👩‍🏫🌷💗</b>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    Made with 💗, a little creativity & lots of respect 🌸
+
+    <br>
+
+    Happy Teacher's Day! 🎀
+
+</footer>
+
+
+<script>
+
+/* Scroll button */
+
+function scrollToMessage(){
+
+    document.getElementById("message").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* Surprise */
+
+function showSurprise(){
+
+    const message =
+    document.getElementById("surpriseMessage");
+
+    message.style.display="block";
+
+    createConfetti();
+
+}
+
+
+/* Confetti */
+
+function createConfetti(){
+
+    const symbols=[
+        "💗",
+        "🌸",
+        "🎀",
+        "✨",
+        "💕",
+        "🌷"
+    ];
+
+    for(let i=0;i<45;i++){
+
+        const confetti=
+        document.createElement("div");
+
+        confetti.className="confetti";
+
+        confetti.innerText=
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+        confetti.style.left=
+        Math.random()*100+"vw";
+
+        confetti.style.fontSize=
+        (15+Math.random()*20)+"px";
+
+        confetti.style.animationDuration=
+        (2+Math.random()*2)+"s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>{
+            confetti.remove();
+        },4000);
+
+    }
+
+}
+
+
+/* Extra floating hearts */
+
+setInterval(()=>{
+
+    const heart=
+    document.createElement("div");
+
+    heart.className="bg-heart";
+
+    heart.innerText=
+    ["💗","💕","🌸","🎀","✨"]
+    [Math.floor(Math.random()*5)];
+
+    heart.style.left=
+    Math.random()*100+"%";
+
+    heart.style.animationDuration=
+    (6+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },11000);
+
+},1500);
+
+</script>
+
+</body>
+</html>
+
