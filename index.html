@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,11 @@
 <title>Happy Teacher's Day 🌸</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -20,67 +24,139 @@ html{
 
 body{
     font-family:"Segoe UI", sans-serif;
-    background:linear-gradient(135deg,#fff0f6,#ffe0ec,#fff7fa);
     color:#5c3045;
     overflow-x:hidden;
+
+    background:
+        radial-gradient(circle at 10% 10%, #ffffff 0%, transparent 28%),
+        radial-gradient(circle at 90% 20%, #ffd9e8 0%, transparent 30%),
+        radial-gradient(circle at 20% 90%, #ffe5ef 0%, transparent 30%),
+        linear-gradient(135deg,#fff2f7,#ffe0ec,#fff8fb);
 }
 
-/* Floating background hearts */
+
+/* =========================
+   FLOATING BACKGROUND
+========================= */
 
 .bg-heart{
     position:fixed;
-    bottom:-30px;
+    bottom:-40px;
     font-size:22px;
-    animation:floatUp 8s linear infinite;
-    opacity:.5;
-    z-index:0;
+    opacity:.45;
     pointer-events:none;
+    z-index:0;
+    animation:floatUp 9s linear infinite;
 }
 
 @keyframes floatUp{
+
     0%{
-        transform:translateY(0) rotate(0);
+        transform:translateY(0) rotate(0deg);
         opacity:0;
     }
+
     20%{
-        opacity:.7;
+        opacity:.65;
     }
+
     100%{
         transform:translateY(-110vh) rotate(360deg);
         opacity:0;
     }
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     padding:30px 20px;
+
     position:relative;
     overflow:hidden;
 }
 
-.hero-card{
-    background:rgba(255,255,255,.65);
-    backdrop-filter:blur(12px);
-    border:2px solid rgba(255,255,255,.8);
-    border-radius:35px;
-    padding:45px 30px;
-    max-width:850px;
-    box-shadow:0 20px 60px rgba(214,100,145,.2);
-    animation:cardIn 1.3s ease;
-    z-index:2;
+.hero::before{
+    content:"";
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:#ffc6dc;
+
+    border-radius:50%;
+
+    top:-150px;
+    left:-120px;
+
+    filter:blur(80px);
+
+    opacity:.5;
 }
 
-@keyframes cardIn{
+.hero::after{
+    content:"";
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:#ffdceb;
+
+    border-radius:50%;
+
+    bottom:-160px;
+    right:-120px;
+
+    filter:blur(80px);
+
+    opacity:.6;
+}
+
+.hero-card{
+
+    max-width:850px;
+
+    padding:55px 35px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.62);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 30px 80px rgba(203,76,126,.18),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    position:relative;
+
+    z-index:2;
+
+    animation:heroIn 1.2s ease;
+}
+
+@keyframes heroIn{
+
     from{
         opacity:0;
-        transform:translateY(50px) scale(.95);
+        transform:translateY(60px) scale(.94);
     }
+
     to{
         opacity:1;
         transform:translateY(0) scale(1);
@@ -88,309 +164,917 @@ body{
 }
 
 .teacher-icon{
-    font-size:75px;
-    animation:bounce 2s infinite;
+
+    font-size:78px;
+
+    animation:
+        teacherBounce 2.2s ease-in-out infinite;
 }
 
-@keyframes bounce{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+@keyframes teacherBounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
 }
 
 .hero h1{
-    font-size:clamp(40px,8vw,75px);
-    color:#d94f87;
+
     margin:15px 0;
+
+    font-size:clamp(42px,8vw,76px);
+
+    color:#d94f87;
+
+    text-shadow:
+        0 7px 25px rgba(217,79,135,.16);
 }
 
 .hero h2{
-    font-size:clamp(20px,4vw,32px);
+
     color:#8e4c68;
+
+    font-size:clamp(20px,4vw,32px);
+
     font-weight:500;
 }
 
 .hero p{
+
     margin-top:20px;
+
     font-size:18px;
-    line-height:1.7;
+
+    line-height:1.8;
 }
 
 .start-btn{
+
     margin-top:30px;
-    padding:14px 28px;
+
+    padding:15px 32px;
+
     border:none;
-    border-radius:30px;
-    background:linear-gradient(135deg,#ed78a8,#d84f87);
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f38db7,
+            #d94f87
+        );
+
     color:white;
+
     font-size:17px;
+
+    font-weight:700;
+
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(216,79,135,.3);
-    transition:.3s;
+
+    box-shadow:
+        0 12px 30px rgba(217,79,135,.3);
+
+    transition:.35s;
 }
 
 .start-btn:hover{
-    transform:translateY(-5px) scale(1.04);
+
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 20px 40px rgba(217,79,135,.38);
 }
 
-/* SECTION */
+
+/* =========================
+   SECTIONS
+========================= */
 
 section{
+
     padding:90px 20px;
+
     position:relative;
+
     z-index:1;
 }
 
 .section-title{
+
     text-align:center;
+
     color:#d94f87;
+
     font-size:clamp(30px,6vw,48px);
+
     margin-bottom:45px;
+
+    text-shadow:
+        0 5px 20px rgba(217,79,135,.12);
 }
 
-/* MESSAGE */
+
+/* =========================
+   MESSAGE
+========================= */
 
 .message-box{
+
     max-width:850px;
+
     margin:auto;
-    background:white;
-    padding:40px;
-    border-radius:30px;
-    box-shadow:0 15px 45px rgba(200,90,130,.15);
+
+    padding:42px;
+
+    border-radius:35px;
+
     text-align:center;
+
     line-height:1.9;
+
     font-size:18px;
-    border:3px dashed #f3a8c5;
+
+    background:rgba(255,255,255,.8);
+
+    backdrop-filter:blur(12px);
+
+    border:
+        2px dashed #f1a2c2;
+
+    box-shadow:
+        0 20px 55px rgba(200,90,130,.14);
 }
 
 .message-box .big{
+
     font-size:30px;
+
     margin-bottom:15px;
+
+    color:#d94f87;
+
+    font-weight:700;
 }
 
-/* FUNNY CARDS */
+
+/* =========================
+   FUNNY CARDS
+========================= */
 
 .cards{
+
     max-width:1050px;
+
     margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:25px;
 }
 
 .card{
-    background:rgba(255,255,255,.8);
-    padding:30px 22px;
-    border-radius:25px;
+
+    padding:32px 23px;
+
     text-align:center;
-    box-shadow:0 12px 30px rgba(190,80,120,.12);
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.78);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 15px 35px rgba(190,80,120,.12);
+
     transition:.4s;
-    border:2px solid #ffd2e2;
 }
 
 .card:hover{
-    transform:translateY(-10px) rotate(1deg);
+
+    transform:
+        translateY(-10px)
+        rotate(1deg);
+
+    box-shadow:
+        0 25px 50px rgba(190,80,120,.2);
 }
 
 .card .emoji{
-    font-size:50px;
+
+    font-size:52px;
 }
 
 .card h3{
+
     color:#d45288;
+
     margin:15px 0 10px;
 }
 
 .card p{
-    line-height:1.6;
+
+    line-height:1.7;
 }
 
-/* DOODLES */
+
+/* =========================
+   DOODLES
+========================= */
 
 .doodles{
+
     max-width:1050px;
+
     margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:20px;
 }
 
 .gallery-note{
+
     max-width:760px;
+
     margin:-25px auto 32px;
+
     text-align:center;
-    line-height:1.6;
+
+    line-height:1.7;
+
     color:#8e4c68;
 }
 
 .doodle{
-    background:white;
-    border-radius:25px;
+
     padding:12px;
-    box-shadow:0 10px 25px rgba(190,80,120,.15);
+
+    background:white;
+
+    border-radius:28px;
+
+    box-shadow:
+        0 12px 30px rgba(190,80,120,.15);
+
     transition:.4s;
 }
 
 .doodle:hover{
-    transform:rotate(-3deg) scale(1.04);
+
+    transform:
+        rotate(-3deg)
+        scale(1.04);
+
+    box-shadow:
+        0 20px 40px rgba(190,80,120,.2);
 }
 
 .doodle img{
+
     width:100%;
+
     height:220px;
+
     object-fit:cover;
-    border-radius:18px;
+
+    border-radius:20px;
 }
 
 .doodle p{
-    text-align:center;
+
     padding:12px 5px;
+
+    text-align:center;
+
     font-weight:600;
+
     color:#a54d70;
 }
 
-/* TEACHER QUOTE */
+
+/* =========================
+   QUOTE
+========================= */
 
 .quote{
+
     max-width:850px;
+
     margin:auto;
-    text-align:center;
-    background:linear-gradient(135deg,#ffd7e7,#fff);
-    border-radius:35px;
+
     padding:50px 30px;
-    box-shadow:0 15px 40px rgba(200,90,130,.15);
+
+    text-align:center;
+
+    border-radius:40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,215,231,.9),
+            rgba(255,255,255,.92)
+        );
+
+    box-shadow:
+        0 20px 50px rgba(200,90,130,.15);
+
+    border:
+        1px solid rgba(255,255,255,.9);
 }
 
 .quote span{
+
     font-size:55px;
 }
 
 .quote h2{
+
     margin:15px 0;
+
     color:#d94f87;
 }
 
 .quote p{
-    font-size:20px;
-    line-height:1.7;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    white-space:pre-line;
 }
 
-/* SURPRISE */
+
+/* =========================
+   PREMIUM SURPRISE
+========================= */
 
 .surprise{
+
     text-align:center;
+
+    padding-bottom:110px;
 }
 
 .surprise-box{
-    max-width:700px;
+
+    max-width:760px;
+
     margin:auto;
-    background:white;
-    border-radius:35px;
-    padding:45px 25px;
-    box-shadow:0 15px 45px rgba(190,80,120,.18);
+
+    padding:55px 28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.92),
+            rgba(255,235,245,.92)
+        );
+
+    backdrop-filter:blur(20px);
+
+    border:
+        1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+        0 30px 80px rgba(190,80,120,.2),
+        inset 0 1px 0 white;
+}
+
+.surprise-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:#ffd2e3;
+
+    top:-120px;
+    left:-90px;
+
+    filter:blur(20px);
+
+    opacity:.6;
+}
+
+.surprise-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:#ffe8f1;
+
+    bottom:-120px;
+    right:-90px;
+
+    filter:blur(20px);
+
+    opacity:.7;
+}
+
+.gift-icon{
+
+    position:relative;
+
+    z-index:3;
+
+    font-size:70px;
+
+    animation:
+        giftFloat 2s ease-in-out infinite;
+}
+
+@keyframes giftFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(4deg);
+    }
+}
+
+.surprise-title{
+
+    position:relative;
+
+    z-index:3;
+
+    margin-top:10px;
+
+    color:#d94f87;
+
+    font-size:30px;
+}
+
+.surprise-subtitle{
+
+    position:relative;
+
+    z-index:3;
+
+    margin-top:10px;
+
+    color:#8e4c68;
+
+    font-size:16px;
 }
 
 .surprise-btn{
-    margin-top:25px;
-    padding:15px 30px;
-    border:0;
-    border-radius:30px;
-    background:#d94f87;
+
+    position:relative;
+
+    z-index:5;
+
+    margin-top:28px;
+
+    padding:16px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f38db7,
+            #d94f87
+        );
+
     color:white;
+
     font-size:17px;
+
+    font-weight:700;
+
     cursor:pointer;
+
+    box-shadow:
+        0 14px 35px rgba(217,79,135,.3);
+
+    transition:.35s;
 }
+
+.surprise-btn:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
+
+    box-shadow:
+        0 20px 45px rgba(217,79,135,.4);
+}
+
+.surprise-btn:disabled{
+
+    cursor:default;
+
+    opacity:.9;
+
+    transform:none;
+}
+
+
+/* =========================
+   HIDDEN MESSAGE
+========================= */
 
 .hidden-message{
+
     display:none;
-    margin-top:30px;
-    font-size:21px;
-    line-height:1.8;
-    color:#a33e68;
-    animation:pop .7s ease;
+
+    position:relative;
+
+    z-index:3;
+
+    margin-top:40px;
+
+    animation:
+        surpriseReveal 1s ease forwards;
 }
 
-@keyframes pop{
+@keyframes surpriseReveal{
+
     from{
-        transform:scale(.5);
+
         opacity:0;
+
+        transform:
+            translateY(40px)
+            scale(.9);
     }
+
     to{
-        transform:scale(1);
+
         opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
-/* FOOTER */
+
+/* =========================
+   SURPRISE IMAGE
+========================= */
+
+.surprise-image-wrap{
+
+    position:relative;
+
+    max-width:470px;
+
+    margin:auto;
+
+    padding:10px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ffdce9
+        );
+
+    box-shadow:
+        0 25px 55px rgba(190,80,120,.22);
+}
+
+.surprise-image{
+
+    display:block;
+
+    width:100%;
+
+    max-height:520px;
+
+    object-fit:cover;
+
+    border-radius:23px;
+
+    border:4px solid white;
+
+    box-shadow:
+        0 10px 35px rgba(190,80,120,.18);
+
+    animation:
+        imageGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes imageGlow{
+
+    from{
+
+        box-shadow:
+            0 10px 30px rgba(217,79,135,.15);
+    }
+
+    to{
+
+        box-shadow:
+            0 15px 45px rgba(217,79,135,.35);
+    }
+}
+
+
+/* =========================
+   IMAGE SPARKLES
+========================= */
+
+.sparkle{
+
+    position:absolute;
+
+    z-index:6;
+
+    font-size:25px;
+
+    animation:
+        sparkleFloat 2s ease-in-out infinite;
+}
+
+.sparkle1{
+
+    top:-15px;
+    left:-12px;
+}
+
+.sparkle2{
+
+    top:20px;
+    right:-15px;
+
+    animation-delay:.5s;
+}
+
+.sparkle3{
+
+    bottom:-10px;
+    right:18px;
+
+    animation-delay:1s;
+}
+
+@keyframes sparkleFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translateY(-9px)
+            scale(1.15);
+    }
+}
+
+
+/* =========================
+   CAPTION
+========================= */
+
+.image-caption{
+
+    margin-top:22px;
+
+    color:#c04476;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    animation:
+        captionFade 1.4s ease;
+}
+
+@keyframes captionFade{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.final-note{
+
+    margin-top:18px;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    color:#805069;
+}
+
+.final-message{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f6,
+            #ffe0ec
+        );
+
+    color:#c04476;
+
+    font-weight:700;
+
+    line-height:1.8;
+
+    box-shadow:
+        inset 0 0 20px rgba(217,79,135,.07);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
+
+    padding:35px 20px;
+
     text-align:center;
-    padding:30px 20px;
-    background:#f9c4d9;
+
+    line-height:1.8;
+
     color:#78374f;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f9c4d9,
+            #ffdce9
+        );
 }
 
-/* CONFETTI */
+
+/* =========================
+   CONFETTI
+========================= */
 
 .confetti{
+
     position:fixed;
-    top:-20px;
-    width:10px;
-    height:10px;
+
+    top:-30px;
+
     z-index:100;
-    animation:fall 3s linear forwards;
+
+    pointer-events:none;
+
+    animation:
+        fall 3s linear forwards;
 }
 
 @keyframes fall{
+
     to{
-        transform:translateY(110vh) rotate(720deg);
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
         opacity:0;
     }
 }
 
-/* RESPONSIVE */
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:800px){
 
     .cards{
+
         grid-template-columns:1fr;
+
         max-width:500px;
     }
 
     .doodles{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .hero-card{
-        padding:35px 20px;
-    }
 
+        padding:40px 22px;
+    }
 }
 
 @media(max-width:500px){
 
     section{
+
         padding:65px 15px;
     }
 
     .doodles{
+
         grid-template-columns:1fr;
     }
 
     .doodle img{
+
         height:280px;
     }
 
     .message-box{
+
         padding:28px 20px;
     }
 
+    .surprise-box{
+
+        padding:42px 18px;
+    }
+
+    .surprise-title{
+
+        font-size:25px;
+    }
+
+    .surprise-image{
+
+        max-height:450px;
+    }
 }
+
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection{
+
+    background:#f7a7c5;
+
+    color:white;
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- Floating hearts -->
+
+<!-- =========================
+     FLOATING HEARTS
+========================= -->
+
 <div class="bg-heart" style="left:5%;animation-delay:0s;">💗</div>
 <div class="bg-heart" style="left:18%;animation-delay:2s;">🌸</div>
 <div class="bg-heart" style="left:35%;animation-delay:4s;">💕</div>
@@ -399,23 +1083,35 @@ footer{
 <div class="bg-heart" style="left:90%;animation-delay:5s;">🌷</div>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
     <div class="hero-card">
 
-        <div class="teacher-icon">👩‍🏫🌸</div>
+        <div class="teacher-icon">
+            👩‍🏫🌸
+        </div>
 
-        <h1>Happy Teacher's Day!</h1>
+        <h1>
+            Happy Teacher's Day!
+        </h1>
 
-        <h2>Congratulations on your permanent position! ✨</h2>
+        <h2>
+            Congratulations on your permanent position! ✨
+        </h2>
 
         <p>
-            From being a visiting teacher to becoming a permanent member of the team, your journey has been inspiring. 💗
+            From being a visiting teacher to becoming a permanent
+            member of the team, your journey has been inspiring. 💗
         </p>
 
-        <button class="start-btn" onclick="scrollToMessage()">
+        <button
+            class="start-btn"
+            onclick="scrollToMessage()"
+        >
             Open Your Surprise 💌
         </button>
 
@@ -424,30 +1120,40 @@ footer{
 </section>
 
 
-<!-- MESSAGE -->
+<!-- =========================
+     MESSAGE
+========================= -->
 
 <section id="message">
 
-    <h2 class="section-title">A Little Message For You 🌷</h2>
+    <h2 class="section-title">
+        A Little Message For You 🌷
+    </h2>
 
     <div class="message-box">
 
-        <div class="big">💗 Dear Teacher 💗</div>
+        <div class="big">
+            💗 Dear Teacher 💗
+        </div>
 
         <p>
-            It has only been three weeks, so we are still in the first episode. 😂
+            It has only been three weeks, so we are still
+            in the first episode. 😂
         </p>
 
         <br>
 
         <p>
-            Thank you for understanding me and being so patient and supportive, even when I miss a lecture. It genuinely means a lot. 🌸
+            Thank you for understanding me and being so patient
+            and supportive, even when I miss a lecture.
+            It genuinely means a lot. 🌸
         </p>
 
         <br>
 
         <p>
-            Our journey is just beginning. Let’s see what the next chapters bring! 💗
+            Our journey is just beginning.
+            Let’s see what the next chapters bring! 💗
         </p>
 
     </div>
@@ -455,114 +1161,207 @@ footer{
 </section>
 
 
-<!-- FUNNY MOMENTS -->
+<!-- =========================
+     FUNNY CARDS
+========================= -->
 
 <section>
 
-    <h2 class="section-title">Three-Week Semester Starter Pack 😂🎀</h2>
+    <h2 class="section-title">
+        Three-Week Semester Starter Pack 😂🎀
+    </h2>
 
     <div class="cards">
 
-        <div class="card">
-            <div class="emoji">📚😭</div>
-            <h3>Episode One 🎬</h3>
-            <p>
-                Three weeks in, and the semester plot is already thickening. 😂
-                <br>
-                Next episode: "Miss, is this going to be on the test?" 😭
-            </p>
-        </div>
 
         <div class="card">
-            <div class="emoji">👀</div>
-            <h3>Attendance Side Quest 🏃‍♀️</h3>
+
+            <div class="emoji">
+                📚😭
+            </div>
+
+            <h3>
+                Episode One 🎬
+            </h3>
+
             <p>
-                Me: "I won't miss any lectures this week."
-                <br>
-                My alarm: "That's adorable." 😂
+                Three weeks in, and the semester plot
+                is already thickening. 😂
+                <br><br>
+                Next episode:
+                "Miss, is this going to be on the test?" 😭
             </p>
+
         </div>
 
+
         <div class="card">
-            <div class="emoji">🙋‍♀️😂</div>
-            <h3>Permanent Role Unlocked! 🎉</h3>
+
+            <div class="emoji">
+                👀
+            </div>
+
+            <h3>
+                Attendance Side Quest 🏃‍♀️
+            </h3>
+
+            <p>
+                Me:
+                "I won't miss any lectures this week."
+                <br><br>
+                My alarm:
+                "That's adorable." 😂
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="emoji">
+                🙋‍♀️😂
+            </div>
+
+            <h3>
+                Permanent Role Unlocked! 🎉
+            </h3>
+
             <p>
                 New title, same amazing Miss! 🌸
-                <br>
-                Now our "just one quick question" visits are permanent too. 😂💗
+                <br><br>
+                Now our "just one quick question"
+                visits are permanent too. 😂💗
             </p>
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- DOODLES -->
+<!-- =========================
+     DOODLES
+========================= -->
 
 <section>
 
-    <h2 class="section-title">Little Memories, Lots of Smiles 🎨💗</h2>
+    <h2 class="section-title">
+        Little Memories, Lots of Smiles 🎨💗
+    </h2>
 
     <p class="gallery-note">
-        A little gallery for a teacher who makes our days brighter and even deadlines feel less scary. 💗
+
+        A little gallery for a teacher who makes our days brighter
+        and even deadlines feel less scary. 💗
+
     </p>
+
 
     <div class="doodles">
 
-        <!-- Replace these images with your own doodles -->
 
         <div class="doodle">
-            <img src="te1.jpeg" alt="Cute Teacher Doodle">
-            <p>Best Teacher Ever 🌸</p>
+
+            <img
+                src="te1.jpeg"
+                alt="Cute Teacher Doodle"
+            >
+
+            <p>
+                Best Teacher Ever 🌸
+            </p>
+
         </div>
 
-        <div class="doodle">
-            <img src="te2.jpeg" alt="Funny Teacher Doodle">
-            <p>Patient Level: 1000 😂</p>
-        </div>
 
         <div class="doodle">
-            <img src="te3.jpeg" alt="Cute Doodle">
-            <p>Thank You For Everything 💗</p>
+
+            <img
+                src="te2.jpeg"
+                alt="Funny Teacher Doodle"
+            >
+
+            <p>
+                Patient Level: 1000 😂
+            </p>
+
         </div>
 
+
         <div class="doodle">
-            <img src="te4.jpeg" alt="Funny Doodle">
-            <p>We Survived Another Class 😭🎀</p>
+
+            <img
+                src="te3.jpeg"
+                alt="Cute Teacher Doodle"
+            >
+
+            <p>
+                Thank You For Everything 💗
+            </p>
+
         </div>
+
+
+        <div class="doodle">
+
+            <img
+                src="te4.jpeg"
+                alt="Funny Teacher Doodle"
+            >
+
+            <p>
+                We Survived Another Class 😭🎀
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- QUOTE -->
+<!-- =========================
+     TEACHER'S DAY MESSAGE
+========================= -->
 
 <section>
 
     <div class="quote">
 
-        <span>🌷</span>
+        <span>
+            🌷
+        </span>
 
-        <h2>Just the Beginning</h2>
+        <h2>
+            Just the Beginning
+        </h2>
 
         <p>
-            Dear Teacher 🌸💗
+
+Dear Teacher 🌸💗
 
 Happy Teacher’s Day! 🎀✨
 
-Thank you for teaching us, guiding us, tolerating our endless questions, and somehow surviving our “Ma’am, ye syllabus mein hai?” moments. 😂😭
+Thank you for teaching us, guiding us, tolerating our endless questions,
+and somehow surviving our “Ma’am, ye syllabus mein hai?” moments. 😂😭
 
-You don’t just teach us lesson. you also teach us patience … especially when we forget our assignments! 🤭📚
+You don’t just teach us lessons, you also teach us patience…
+especially when we forget our assignments! 🤭📚
 
 Honestly, every class becomes a little more memorable because of you. 🌷
 
-Thank you for always believing in us, correcting us when we’re wrong, and encouraging us to do better. 🥹💗
+Thank you for always believing in us, correcting us when we’re wrong,
+and encouraging us to do better. 🥹💗
 
-May your coffee always be hot ☕, your students always be on time ⏰, and your “I’ll check your assignment later” never turn into 50 assignments! 😂
+May your coffee always be hot ☕,
+your students always be on time ⏰,
+and your “I’ll check your assignment later”
+never turn into 50 assignments! 😂
 
-Happy Teacher’s Day to one of the most amazing teachers! 👩‍🏫🌸💗**
+Happy Teacher’s Day to one of the most amazing teachers! 👩‍🏫🌸💗
 
         </p>
 
@@ -571,33 +1370,117 @@ Happy Teacher’s Day to one of the most amazing teachers! 👩‍🏫🌸💗**
 </section>
 
 
-<!-- SURPRISE -->
+<!-- =========================
+     PREMIUM FINAL SURPRISE
+========================= -->
 
 <section class="surprise">
 
-    <h2 class="section-title">One Last Little Surprise 💌</h2>
+    <h2 class="section-title">
+        One Last Little Surprise 💌
+    </h2>
+
 
     <div class="surprise-box">
 
-        <div style="font-size:65px;">🎁🌸</div>
 
-        <h2 style="color:#d94f87;">
-            There's something here for you...
+        <div
+            class="gift-icon"
+            id="giftIcon"
+        >
+            🎁🌸
+        </div>
+
+
+        <h2 class="surprise-title">
+            There's something special for you...
         </h2>
 
-        <button class="surprise-btn" onclick="showSurprise()">
+
+        <p class="surprise-subtitle">
+            A tiny little memory for an amazing teacher 💗
+        </p>
+
+
+        <button
+            class="surprise-btn"
+            id="surpriseButton"
+            onclick="showSurprise()"
+        >
             Click Me 💗
         </button>
 
-        <div class="hidden-message" id="surpriseMessage">
 
-            🌸 Happy Teacher's Day, Miss! Congratulations on becoming a permanent member of the team. From being a visiting teacher to reaching this wonderful milestone, you have come so far. May this be the first of many achievements. Wishing you lots more success and happiness in everything ahead, Insha'Allah! 💗
+        <!-- =========================
+             HIDDEN SURPRISE
+        ========================= -->
 
-            <br><br>
+        <div
+            class="hidden-message"
+            id="surpriseMessage"
+        >
 
-            <br><br>
 
-            <b>Happy Teacher's Day! 👩‍🏫🌷💗</b>
+            <div class="surprise-image-wrap">
+
+                <div class="sparkle sparkle1">
+                    ✨
+                </div>
+
+                <div class="sparkle sparkle2">
+                    🌸
+                </div>
+
+                <div class="sparkle sparkle3">
+                    💗
+                </div>
+
+
+                <!-- SURPRISE IMAGE -->
+
+                <img
+                    src="te5.jpeg"
+                    alt="Beautiful Teacher Memory"
+                    class="surprise-image"
+                >
+
+            </div>
+
+
+            <!-- SHORT CAPTION -->
+
+            <h3 class="image-caption">
+
+                A little memory for a truly wonderful teacher 🌷
+
+            </h3>
+
+
+            <p class="final-note">
+
+                Thank you for making these first few weeks
+                a little more memorable. 💗
+
+                <br><br>
+
+                Congratulations on your new journey
+                as a permanent member of the team! ✨
+
+            </p>
+
+
+            <div class="final-message">
+
+                🌸 Happy Teacher's Day, Miss! 🌸
+
+                <br>
+
+                May this new chapter bring you
+                endless success, happiness
+                & beautiful memories. 💕
+
+            </div>
+
 
         </div>
 
@@ -605,6 +1488,10 @@ Happy Teacher’s Day to one of the most amazing teachers! 👩‍🏫🌸💗**
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -619,36 +1506,82 @@ Happy Teacher’s Day to one of the most amazing teachers! 👩‍🏫🌸💗**
 
 <script>
 
-/* Scroll button */
+
+/* =========================
+   HERO BUTTON
+========================= */
 
 function scrollToMessage(){
 
-    document.getElementById("message").scrollIntoView({
-        behavior:"smooth"
-    });
+    document
+        .getElementById("message")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
 }
 
 
-/* Surprise */
+/* =========================
+   FINAL SURPRISE
+========================= */
 
 function showSurprise(){
 
     const message =
-    document.getElementById("surpriseMessage");
+        document.getElementById("surpriseMessage");
 
-    message.style.display="block";
+    const gift =
+        document.getElementById("giftIcon");
+
+    const button =
+        document.getElementById("surpriseButton");
+
+
+    /* Show surprise */
+
+    message.style.display = "block";
+
+
+    /* Change gift */
+
+    gift.innerHTML = "💗✨";
+
+
+    /* Change button */
+
+    button.innerHTML =
+        "Surprise Unlocked! 🌸";
+
+    button.disabled = true;
+
+
+    /* Celebration */
 
     createConfetti();
+
+
+    /* Scroll to revealed image */
+
+    setTimeout(function(){
+
+        message.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },300);
 
 }
 
 
-/* Confetti */
+/* =========================
+   CONFETTI
+========================= */
 
 function createConfetti(){
 
-    const symbols=[
+    const symbols = [
         "💗",
         "🌸",
         "🎀",
@@ -657,29 +1590,47 @@ function createConfetti(){
         "🌷"
     ];
 
-    for(let i=0;i<45;i++){
 
-        const confetti=
-        document.createElement("div");
+    for(let i = 0; i < 55; i++){
 
-        confetti.className="confetti";
+        const confetti =
+            document.createElement("div");
 
-        confetti.innerText=
-        symbols[Math.floor(Math.random()*symbols.length)];
 
-        confetti.style.left=
-        Math.random()*100+"vw";
+        confetti.className =
+            "confetti";
 
-        confetti.style.fontSize=
-        (15+Math.random()*20)+"px";
 
-        confetti.style.animationDuration=
-        (2+Math.random()*2)+"s";
+        confetti.innerText =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
 
-        document.body.appendChild(confetti);
 
-        setTimeout(()=>{
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+
+        confetti.style.fontSize =
+            (15 + Math.random() * 20) + "px";
+
+
+        confetti.style.animationDuration =
+            (2 + Math.random() * 2) + "s";
+
+
+        document.body.appendChild(
+            confetti
+        );
+
+
+        setTimeout(function(){
+
             confetti.remove();
+
         },4000);
 
     }
@@ -687,35 +1638,55 @@ function createConfetti(){
 }
 
 
-/* Extra floating hearts */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
-setInterval(()=>{
+setInterval(function(){
 
-    const heart=
-    document.createElement("div");
+    const heart =
+        document.createElement("div");
 
-    heart.className="bg-heart";
 
-    heart.innerText=
-    ["💗","💕","🌸","🎀","✨"]
-    [Math.floor(Math.random()*5)];
+    heart.className =
+        "bg-heart";
 
-    heart.style.left=
-    Math.random()*100+"%";
 
-    heart.style.animationDuration=
-    (6+Math.random()*5)+"s";
+    heart.innerText = [
+        "💗",
+        "💕",
+        "🌸",
+        "🎀",
+        "✨"
+    ][
+        Math.floor(
+            Math.random() * 5
+        )
+    ];
 
-    document.body.appendChild(heart);
 
-    setTimeout(()=>{
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+
+    heart.style.animationDuration =
+        (6 + Math.random() * 5) + "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(function(){
+
         heart.remove();
+
     },11000);
 
-},1500);
+},3500);
 
 </script>
 
 </body>
 </html>
-
